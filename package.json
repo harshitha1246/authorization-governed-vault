@@ -1,0 +1,25 @@
+{
+  "name": "authorization-governed-vault",
+  "version": "1.0.0",
+  "description": "Authorization-governed vault system for controlled asset withdrawals",
+  "main": "contracts/Vault.sol",
+  "scripts": {
+    "test": "hardhat test",
+    "deploy": "hardhat run deploy.js",
+    "compile": "hardhat compile"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.0",
+    "hardhat": "^2.14.0",
+    "ethers": "^6.4.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "ethereum-waffle": "^4.0.10",
+    "chai": "^4.3.7"
+  },
+  "keywords": ["blockchain", "vault", "authorization", "smart-contracts"],
+  "author": "Harshitha Pasu",
+  "license": "MIT"
+}
