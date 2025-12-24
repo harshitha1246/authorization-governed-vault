@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  blockchain:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8545:8545"
+    command: npx hardhat node --hostname 0.0.0.0
+    networks:
+      - vault_network
+
+  deployer:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    depends_on:
+      - blockchain
+    environment:
+      - NODE_ENV=development
+    command: sh -c "npm install && sleep 5 && npx hardhat run deploy.js --network localhost"
+    networks:
+      - vault_network
+
+networks:
+  vault_network:
+    driver: bridge
